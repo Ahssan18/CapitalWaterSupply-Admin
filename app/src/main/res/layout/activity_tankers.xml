@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TankersActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/manageAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            app:cardElevation="10dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+                <ImageView
+                    android:id="@+id/addressicon"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/address"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Addresses"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/addressicon"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/managetanker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/manageAddress"
+            android:layout_centerHorizontal="true"
+            app:cardElevation="10dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+                <ImageView
+                    android:id="@+id/tankericon"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/tanker1"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Tankers"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tankericon"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>
