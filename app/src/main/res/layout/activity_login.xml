@@ -17,7 +17,7 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
-                android:text="capitalws123@gmail.com"
+                android:text=""
                 android:hint="Enter Email"/>
             <EditText
                 android:id="@+id/edtPassword"
@@ -27,7 +27,7 @@
                 android:imeOptions="actionDone"
                 android:layout_below="@+id/edtEmail"
                 android:inputType="textPassword"
-                android:text="wscapital"
+                android:text=""
                 android:hint="Enter Password"/>
             <Button
                 android:id="@+id/btnLogin"
