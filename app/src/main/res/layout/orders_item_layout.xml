@@ -40,6 +40,7 @@
                         android:textSize="14sp"
                         android:layout_marginStart="3dp"
                         android:textColor="@android:color/black"/>
+
                     <TextView
                         android:id="@+id/tvOrderTankerName"
                         android:layout_width="wrap_content"
@@ -50,6 +51,16 @@
                         android:layout_below="@+id/tvOrderId"
                         android:textColor="@android:color/black"/>
                     <TextView
+                        android:id="@+id/tvOrderTanker_name_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanker Name"
+                        android:textSize="14sp"
+                        android:layout_marginTop="15dp"
+                        android:layout_below="@+id/tvOrderTankerName"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
                         android:id="@+id/tvOrderTankerType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -57,7 +68,7 @@
                         android:textSize="12sp"
                         android:visibility="gone"
                         android:layout_marginStart="5dp"
-                        android:layout_below="@id/tvOrderId"
+                        android:layout_below="@id/tvOrderTanker_name_"
                         android:layout_toRightOf="@id/tvOrderTankerName"
                         android:layout_centerHorizontal="true"
                         />
@@ -70,7 +81,7 @@
                         android:textSize="12sp"
                         android:layout_marginTop="3dp"
                         android:layout_marginStart="3dp"
-                        android:layout_below="@id/tvOrderTankerName"
+                        android:layout_below="@id/tvOrderTankerType"
                         />
                     <TextView
                         android:id="@+id/tvOrderUnitPrice"
@@ -85,6 +96,7 @@
                         />
 
                     <TextView
+                        android:layout_marginTop="-15dp"
                         android:id="@+id/tvOrderPhoneNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

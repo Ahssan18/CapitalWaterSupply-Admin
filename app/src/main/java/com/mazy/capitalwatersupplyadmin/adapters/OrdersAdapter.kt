@@ -30,7 +30,8 @@ class OrdersAdapter(val orderItemClickListner: OrderClickListner): RecyclerView.
     override fun onBindViewHolder(holder: AddressesViewHolder, position: Int) {
         val order  = OrdersList[position]
         holder.itemView.tvOrderId.text = "Order Id: "+order.id.toString()
-        holder.itemView.tvOrderTankerName.text = "Name: "+order.tankerName.toString()
+        holder.itemView.tvOrderTankerName.text = "Name: "+order.name.toString()
+        holder.itemView.tvOrderTanker_name_.text = "Tanker Name: "+order.tankerName.toString()
         if(order.tankerType != " "){
             holder.itemView.tvOrderTankerType.visibility = View.VISIBLE
             holder.itemView.tvOrderTankerType.text = order.tankerType.toString()
