@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ForSeeSolution</string>
+    <string name="status">status</string>
+    <string name="safe">safe</string>
+    <string name="sanitised">sanitized</string>
+    <string name="hint_11_43_25_jan_2021">date is come here</string>
+    <string name="serial">11111</string>
+    <string name="range">range</string>
+    <string name="version">version</string>
+    <string name="register_device">register</string>
+    <string name="add_identifier">here is hint</string>
+</resources>
