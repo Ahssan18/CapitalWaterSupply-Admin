@@ -14,7 +14,7 @@ public class RestClient {
         }else
         {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://api.github.com/")
+                    .baseUrl("https://shoppingtrendonline.com/api/")
                     .build();
         }
         return retrofit;

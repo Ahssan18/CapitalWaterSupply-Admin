@@ -1,15 +1,17 @@
 package com.mazy.capitalwatersupplyadmin.models
 
+import com.google.firebase.database.PropertyName
+
 data class Order(
-    var userId: String? = null,
-    var id: String? =null,
-    val name:String? = null,
-    val number: String? = null,
-    val address :String? = null,
-    val quantity: String? = null,
-    var uPrice: String? = null,
-    var tPrice: String? = null,
-    val tankerName : String? = null,
-    val tankerType: String? = null,
-    val status : String? = null
+    @PropertyName("userId") var userId: String? = null,
+    @PropertyName("id") var id: String? =null,
+    @PropertyName("name") val name:String? = null,
+    @PropertyName("number")val number: String? = null,
+    @PropertyName("address") val address :String? = null,
+    @PropertyName("quantity") val quantity: String? = null,
+    @PropertyName("uPrice")var uPrice: String? = null,
+    @PropertyName("tPrice")var tPrice: String? = null,
+    @PropertyName("tankerName")val tankerName : String? = null,
+    @PropertyName("tankerType")val tankerType: String? = null,
+    @PropertyName("status")val status : String? = null
 )

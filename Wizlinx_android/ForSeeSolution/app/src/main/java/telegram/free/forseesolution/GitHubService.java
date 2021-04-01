@@ -8,7 +8,7 @@ import retrofit2.http.Part;
 
 public interface GitHubService {
     @Multipart
-    @POST("/api/receipt/upload")
+    @POST("dummy.php")
     Call<UploadResult> uploadReceipt(
             @Part MultipartBody.Part file
     );

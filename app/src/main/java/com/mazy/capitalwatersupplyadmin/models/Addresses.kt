@@ -1,7 +1,9 @@
 package com.mazy.capitalwatersupplyadmin.models
 
+import com.google.firebase.database.PropertyName
+
 data class Addresses(
-    var id:String? = null,
-    val address:String? = null,
-    val price : String? = null
+    @PropertyName("id") var id:String? = null,
+    @PropertyName("address") val address:String? = null,
+    @PropertyName("price") val price : String? = null
 )

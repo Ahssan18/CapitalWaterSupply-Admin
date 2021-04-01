@@ -65,7 +65,8 @@ class MainActivity : AppCompatActivity(), OrderClickListner {
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-
+                val toast = Toast.makeText(applicationContext, ""+error.code+"_"+error.message, Toast.LENGTH_SHORT)
+                toast.show()
             }
         })
     }

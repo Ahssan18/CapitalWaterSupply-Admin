@@ -29,7 +29,7 @@ public class MyWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        String path = getInputData().getString("file");
+        String path = getInputData().getString(TASK_DESC);
         displayNotification("My Worker", "Hey I finished my work");
         uploadFile(path);
         return Result.success();
@@ -43,7 +43,7 @@ public class MyWorker extends Worker {
                         file
                 );
         MultipartBody.Part body =
-                MultipartBody.Part.createFormData("files[0]", file.getName(), requestFile);
+                MultipartBody.Part.createFormData("file", file.getName(), requestFile);
 
         RestClient.getInstance().create(GitHubService.class).uploadReceipt(body).enqueue(new Callback<UploadResult>() {
             @Override
@@ -58,7 +58,7 @@ public class MyWorker extends Worker {
 
             @Override
             public void onFailure(Call<UploadResult> call, Throwable t) {
-
+                t.printStackTrace();
             }
         });
     }
