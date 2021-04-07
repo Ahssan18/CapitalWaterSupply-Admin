@@ -6,10 +6,10 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-public interface GitHubService {
+public interface ApiServices {
     @Multipart
-    @POST("dummy.php")
-    Call<UploadResult> uploadReceipt(
+    @POST("api/dummy.php")
+    Call<UploadResult> uploadPic(
             @Part MultipartBody.Part file
     );
 }

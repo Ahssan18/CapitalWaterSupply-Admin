@@ -2,13 +2,18 @@ package telegram.free.forseesolution;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.work.Data;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 
@@ -21,10 +26,15 @@ import retrofit2.Response;
 
 public class MyWorker extends Worker {
     public static final String TASK_DESC = "file";
+    Context ref;
+    ProgressDialog progressDialog;
 
     public MyWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
+        this.ref = context;
+        progressDialog = new ProgressDialog(context);
     }
+
 
     @NonNull
     @Override
@@ -44,26 +54,44 @@ public class MyWorker extends Worker {
                 );
         MultipartBody.Part body =
                 MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+        progressDialog.show();
+        progressDialog.setMessage("Wait...");
 
-        RestClient.getInstance().create(GitHubService.class).uploadReceipt(body).enqueue(new Callback<UploadResult>() {
+        RestClient.getApiService().create(ApiServices.class).uploadPic(body).enqueue(new Callback<UploadResult>() {
             @Override
             public void onResponse(Call<UploadResult> call, Response<UploadResult> response) {
+                progressDialog.dismiss();
                 if (response.isSuccessful()) {
                     Data data = new Data.Builder()
                             .putString("message", response.message())
                             .build();
-                    senDataBack(data);
+                    senDataBack(response.body().getMsg());
+                    displayNotification("Success", "File uploded Succesfully");
+
+                }else
+                {
+                    senDataBack("error in res");
+
                 }
             }
 
             @Override
             public void onFailure(Call<UploadResult> call, Throwable t) {
+                progressDialog.dismiss();
+                senDataBack(t.getMessage());
+                displayNotification("Filed", "File uploded Failed");
+
                 t.printStackTrace();
             }
         });
     }
 
-    private void senDataBack(Data data) {
+    private void senDataBack(String data) {
+//        EventBus.getDefault().postSticky(data);
+        Intent i = new Intent();
+        i.setAction("com.message.forward");
+        i.putExtra("data", data);
+        ref.sendBroadcast(i);
     }
 
     private void displayNotification(String title, String task) {

@@ -1,47 +1,87 @@
 package telegram.free.forseesolution;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.File;
 
-public class Activty4 extends AppCompatActivity {
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class PicUploadActivity extends AppCompatActivity implements ResponceInter {
+    private static final String TAG ="PicUploadActivity" ;
     OneTimeWorkRequest workRequest;
     private TextView textView;
-    private ImageView ivCancel, ivPicker,picView;
+    private ImageView ivCancel, ivPicker, picView;
     String picturePath;
+    ProgressDialog progressDialog;
+    private Messagereceviver receiver;
+    IntentFilter intentFilter;
+    public class Messagereceviver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String data=intent.getStringExtra("data");
+            textView.setText(data);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        File file = new File("");
-
         setContentView(R.layout.activity_activty4);
         init();
         clicKlistener();
+        if(workRequest!=null){
+            WorkManager.getInstance().getWorkInfoByIdLiveData(workRequest.getId())
+                    .observe(this, workInfo -> {
+                        Data data1 = workInfo.getOutputData();
+                        String resp = data1.getString("responce");
+                        textView.setText(resp);
+                    });
+        }
 
+    }
 
-        WorkManager.getInstance().getWorkInfoByIdLiveData(workRequest.getId())
-                .observe(this, workInfo -> {
-                    Data data1 = workInfo.getOutputData();
-                    String resp = data1.getString("responce");
-                    textView.setText(resp);
-                });
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onEvent(String result) {
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+        textView.setText(result);
     }
 
     private void clicKlistener() {
@@ -50,12 +90,43 @@ public class Activty4 extends AppCompatActivity {
 
         });
         ivPicker.setOnClickListener(v -> {
-            selectImage(this);
+            Dexter.withContext(this).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
+                @Override
+                public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
+                    selectImage(PicUploadActivity.this);
+
+                }
+
+                @Override
+                public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
+
+                }
+
+                @Override
+                public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
+                    permissionToken.continuePermissionRequest();
+                }
+            }).check();
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     private void init() {
-        picView=findViewById(R.id.imageView);
+
+        receiver=new Messagereceviver();
+        progressDialog=new ProgressDialog(this);
+        picView = findViewById(R.id.imageView);
         ivPicker = findViewById(R.id.imageView2);
         ivCancel = findViewById(R.id.imageView3);
         textView = findViewById(R.id.textView);
@@ -64,8 +135,9 @@ public class Activty4 extends AppCompatActivity {
     public void upLoad(View view) {
         WorkManager.getInstance().enqueue(workRequest);
     }
+
     private void selectImage(Context context) {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
+        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Choose your profile picture");
@@ -78,7 +150,7 @@ public class Activty4 extends AppCompatActivity {
 
             } else if (options[item].equals("Choose from Gallery")) {
                 Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(pickPhoto , 1);
+                startActivityForResult(pickPhoto, 1);
 
             } else if (options[item].equals("Cancel")) {
                 dialog.dismiss();
@@ -114,7 +186,7 @@ public class Activty4 extends AppCompatActivity {
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 picturePath = cursor.getString(columnIndex);
                                 setInput(picturePath);
-                                picView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                picView.setImageURI(selectedImage);
                                 cursor.close();
                             }
                         }
@@ -131,5 +203,26 @@ public class Activty4 extends AppCompatActivity {
                 .build();
         workRequest = new OneTimeWorkRequest.Builder(MyWorker.class).setInputData(data).build();
     }
-    /**/
+
+    @Override
+    public void getResponce(UploadResult result) {
+        textView.setText(result.getMsg());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        EventBus.getDefault().unregister(this);
+        unregisterReceiver(receiver);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+        intentFilter=new IntentFilter();
+        intentFilter.addAction("com.message.forward");
+        registerReceiver(receiver,intentFilter);
+    }
 }

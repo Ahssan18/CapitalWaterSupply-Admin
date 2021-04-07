@@ -40,4 +40,6 @@ dependencies {
     implementation "android.arch.work:work-runtime:1.0.1"
     implementation 'com.squareup.retrofit2:retrofit:2.6.3'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.3'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'com.karumi:dexter:6.2.2'
 }

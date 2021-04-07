@@ -1,27 +1,22 @@
 package telegram.free.forseesolution;
 
+import com.google.android.gms.common.api.ApiException;
+
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestClient {
-    public static Retrofit retrofit;
+    private static final String BASE_URL = "https://shoppingtrendonline.com/";
+    private static Retrofit retrofit = null;
 
-    GitHubService service = retrofit.create(GitHubService.class);
-    public static Retrofit getInstance()
-    {
-        if(retrofit!=null)
-        {
-            return retrofit;
-        }else
-        {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl("https://shoppingtrendonline.com/api/")
+    public static Retrofit getApiService() {
+        if (retrofit == null) {
+            retrofit = new Retrofit
+                    .Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
         return retrofit;
-
-    }
-
-    private RestClient(Retrofit retrofit) {
-        this.retrofit = retrofit;
     }
 }
