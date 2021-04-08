@@ -7,7 +7,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
-    lateinit var navcontroler: NavController
+    private lateinit var navcontroler: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navcontroler)
     }
 
+
     override fun onNavigateUp(): Boolean {
         return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.fragment), null)
     }
+
 }
