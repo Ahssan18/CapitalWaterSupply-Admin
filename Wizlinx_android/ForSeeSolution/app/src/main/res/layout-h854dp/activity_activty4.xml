@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="simple"
+        android:text="height 854"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/button"

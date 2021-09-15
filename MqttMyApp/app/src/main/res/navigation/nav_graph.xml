@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/connectionFragment">
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="uk.co.falcona.mqttmyapp.ConnectionFragment"
+        android:label="Fragment Connection"
+        tools:layout="@layout/fragment_connection">
+        <action
+            android:id="@+id/action_connectionFragment_to_communicationFragment3"
+            app:destination="@id/communicationFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/communicationFragment3"
+        android:name="uk.co.falcona.mqttmyapp.CommunicationFragment"
+        android:label="Client Fragment"
+        tools:layout="@layout/fragment_communication">
+        <action
+            android:id="@+id/action_communicationFragment3_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+        <argument
+            android:name="uri"
+            app:argType="string" />
+        <argument
+            android:name="clientid"
+            app:argType="string" />
+    </fragment>
+</navigation>
