@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "555598657124",
+    "project_id": "practice-387a1",
+    "storage_bucket": "practice-387a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555598657124:android:6b04e3e9a315693297d171",
+        "android_client_info": {
+          "package_name": "telegram.free.firebaseanalytics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555598657124-dqvr7p6usdi8rrujg9bspois508nm6a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxMK4Tu57zhnJCTvtHucqWTEmAycVP3kY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555598657124-dqvr7p6usdi8rrujg9bspois508nm6a5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

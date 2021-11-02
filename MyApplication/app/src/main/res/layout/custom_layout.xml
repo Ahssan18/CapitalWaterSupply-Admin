@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AP PHOTOS: Animal attacks taking their toll in Kashmir"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tv_title"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="name"
+                android:id="@+id/tv_source"/>
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="300dp"
+                android:id="@+id/iv_news"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:hint="email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/in_publishing_and_graphic_design_lorem_ipsum_is_a_placeholder_text_commonly_used_to_demonstrate_the_visual_form_of_a_document_or_a_typeface_without_relying_on_meaningful_content"
+                android:id="@+id/tv_description"/>
+            <TextView
+                android:text="MUKHTAR KHAN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:id="@+id/tv_author"/>
+            <TextView
+                android:text="2020-12-01T05:14:35Z"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:id="@+id/tv_publichat"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

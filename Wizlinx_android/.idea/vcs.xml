@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/AIDLCompleteDemo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LiveData" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PaperDb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/androidx-bottom-navigation-view-jitpack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/backsafe-android-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/barcodescanner" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kiosk-android-core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kiosk-android-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/Android-Video-Editor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/AndroidVimeoExtractor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/Applocker" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/BNR-blog-motionlayout" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/MPAndroidChart" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/MaxLock" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/PRDownloader" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/VideoDownloader" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/achartengine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/android-example" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/android-mvvm-architecture" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/android-mvvm-sample-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/practice/collect" vcs="Git" />
+  </component>
+</project>

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "904015195272",
+    "firebase_url": "https://wallpapers-world-69ac9-default-rtdb.firebaseio.com",
+    "project_id": "wallpapers-world-69ac9",
+    "storage_bucket": "wallpapers-world-69ac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904015195272:android:69635ec58f9eb4f1afc33d",
+        "android_client_info": {
+          "package_name": "com.example.wallpapersworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904015195272-8citu90a94up628p8qbljq10ipp8mfe9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGcWoBW5WwtgYOfYjgRh9PSjcJHtgo3Tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904015195272-8citu90a94up628p8qbljq10ipp8mfe9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904015195272:android:3c9f5e39a9f06bc8afc33d",
+        "android_client_info": {
+          "package_name": "com.saproductions.wallpapersworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904015195272-8citu90a94up628p8qbljq10ipp8mfe9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGcWoBW5WwtgYOfYjgRh9PSjcJHtgo3Tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904015195272-8citu90a94up628p8qbljq10ipp8mfe9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

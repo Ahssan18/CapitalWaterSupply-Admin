@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EventBusServicetoActivity</string>
+    <string name="title">title of content</string>
+    <string name="content">content of notification</string>
+    <string name="notifications_channel_description">description of notificaton channel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

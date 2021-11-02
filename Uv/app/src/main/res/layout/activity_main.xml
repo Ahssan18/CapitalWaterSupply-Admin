@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E1E1E1"
+    android:weightSum="10"
+    tools:context=".MainActivity">
+    <include layout="@layout/lay_toolbar"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+
+        android:layout_height="0dp"
+        android:layout_weight="1.25">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:weightSum="2"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+               android:gravity="center"
+                android:text="Last Sanitized:"
+                android:textColor="#20BE20"
+                />
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center|left"
+                    android:drawablePadding="10dp"
+                    android:layout_width="0dp"
+                    android:textStyle=""
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="04/07/2021"
+                    android:drawableLeft="@drawable/ic_calender"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center|left"
+                    android:drawablePadding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="10:08:43"
+                    android:drawableLeft="@drawable/ic_wall_clock"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_height="0dp"
+        android:layout_weight="7.75">
+        <ImageView
+            android:id="@+id/iv_pic_status"
+            android:layout_width="match_parent"
+            android:padding="60dp"
+            android:src="@drawable/img_qr_code"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/tv_varning"
+            android:textColor="@color/black"
+            android:drawableLeft="@drawable/ic_warning"
+            android:layout_gravity="center|left"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:padding="8dp"
+            android:textSize="16dp"
+            android:layout_width="wrap_content"
+            android:text="Scan QR Code on UV-C Device Sanitizer"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

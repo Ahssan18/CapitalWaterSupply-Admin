@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Uv</string>
+    <string name="uv_c_device_sanitizer_tracing">UV-C Device Sanitizer Tracing</string>
+    <string name="sanized">Sanitization Cycle Completed</string>
+</resources>
